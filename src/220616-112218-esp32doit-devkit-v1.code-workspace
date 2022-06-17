@@ -1,0 +1,9 @@
+{
+	"folders": [
+		{
+			"name": "ESP32_FOTA",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
