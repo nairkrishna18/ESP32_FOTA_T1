@@ -734,7 +734,7 @@ String secureEsp32FOTA::secureGetContent()
             String line = clientForOta.readStringUntil('\n');
             if (line == "\r")
             {
-                //Serial.println("headers received");
+                Serial.println("headers received");
                 break;
             }
         }
