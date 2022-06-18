@@ -30,18 +30,21 @@ void setup()
 
 void loop()
 {
+  TickType_t xLastWakeUpTime;
   while(1)
   {
     Serial.printf("FOTA_TRIGGER_STATUS = %d\n",digitalRead(SW3_PIN));
     if(FOTA_TRIGGER_DETECTED)
     {
-      delay(2000);
+      vTaskDelay(pdMS_TO_TICKS(2000));
       if(FOTA_TRIGGER_DETECTED)
       {
         Serial.println("|----------------vTaskResume(TaskOTA)----------------|");
         vTaskResume(TaskOTA);
       }
     }
-    delay(1000);
+    // vTaskDelay(pdMS_TO_TICKS(1000));
+    vTaskDelayUntil(&xLastWakeUpTime,pdMS_TO_TICKS(1000));
+    
   }
 }
