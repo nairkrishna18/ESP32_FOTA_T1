@@ -24,6 +24,8 @@ char* test_root_ca= "-----BEGIN CERTIFICATE-----\n"
 "CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=\n"
 "-----END CERTIFICATE-----\n";
 
+// const char* ssid     = "TROJAN_TP2.4";     // your network SSID (name of wifi network)
+// const char* password = "9833110550"; // your network password
 const char* ssid     = "CG-PLENT_0002";     // your network SSID (name of wifi network)
 const char* password = "1234567890"; // your network password
 
