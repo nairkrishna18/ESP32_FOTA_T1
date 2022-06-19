@@ -22,7 +22,7 @@
 
 // #define JSON_ADDRESS  "/nairkrishna18/PLENT_MASTER/main/CG_PLENT_MASTER_FW_DETAILS.json" // Original Address....
 // #define JSON_ADDRESS  "/nairkrishna18/ESP32_FOTA_T1/blob/master/FotaFolder/CG_PLENT_MASTER_FW_DETAILS.json"
-#define JSON_ADDRESS  "/nairkrishna18/ESP32_FOTA_T1/master/FotaFolder/CG_PLENT_MASTER_FW_DETAILS.json" // removed blob
+#define JSON_ADDRESS  "/nairkrishna18/ESP32_FOTA_T1/master/FotaFolder/ESP32_FOTA_FW_DETAILS.json" // removed blob
 
 void TaskOTAcode( void * parameter );
 void FnOtaStates(void);
