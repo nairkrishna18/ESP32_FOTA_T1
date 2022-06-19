@@ -1,0 +1,12 @@
+{
+    "type": "esp32-fota-https",
+    "Date": "10/12/2021",
+    "Time": "14:37",
+    "Uploaded_By": "Krishna Nair",
+    "Note": "Checking FOTA for CG PLENT MASTER",
+    "For": "CG_PLENT_MASTER",
+    "version": 5.0,
+    "host": "raw.githubusercontent.com",
+    "port": 80,
+    "bin": "/nairkrishna18/PLENT_MASTER/main/CG_PLENT_MASTER.bin"
+}
