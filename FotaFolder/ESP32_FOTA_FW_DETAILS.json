@@ -5,7 +5,7 @@
     "Uploaded_By": "Krishna Nair",
     "Note": "Fota Testing for ESP32...",
     "For": "FOTA_PROJECT_NAME",
-    "version": 2.5,
+    "version": 10.8,
     "host": "raw.githubusercontent.com",
     "port": 80,
     "bin": "/nairkrishna18/ESP32_FOTA_T1/master/FotaFolder/ModFirmwareFota.bin"
