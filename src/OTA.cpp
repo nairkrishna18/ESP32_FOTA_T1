@@ -1,6 +1,8 @@
 #if 1  // OTA.cpp Starts here.................
-#include "OTA.h"
-
+#ifndef _OTA_H_
+    #define _OTA_H_
+    #include "OTA.h"
+#endif
 
 char* test_root_ca= "-----BEGIN CERTIFICATE-----\n"
 "MIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh\n"
@@ -1861,3 +1863,34 @@ const char * UpdateClass::errorString(){
 
 UpdateClass Update;
 #endif  // Updater_Edited.cpp Ends here...................
+
+
+#if 1 // Just call Below 2 functions..........................
+/**************************************************************************************************
+ * Steps to Add FOTA To Project.....
+ * 1. Download and add library/dependencies for fota lib_deps = bblanchon/ArduinoJson@^6.18.5
+ * 2. Add C files OTA.cpp and Header files OTA.h to project
+ * 3. Call init_Fota( ) function in setup loop
+ * 4. Call func_FotaTrigger( ) function in main loop
+ * 5. 
+****************************************************************************************************/
+
+TaskHandle_t TaskOTA;
+void init_Fota(uint8_t Status)
+{
+    if(Status == 1)
+    {
+        xTaskCreatePinnedToCore(TaskOTAcode,"TaskOTA",10000,NULL,1,&TaskOTA,1); 
+        vTaskSuspend(TaskOTA);        
+    }
+}
+
+void func_FotaTrigger(uint8_t Status)
+{
+    if(Status == 1)
+    {
+        Serial.println("|----------------vTaskResume(TaskOTA)----------------|");
+        vTaskResume(TaskOTA);
+    }
+}
+#endif

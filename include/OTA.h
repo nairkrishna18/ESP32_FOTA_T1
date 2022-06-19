@@ -1,17 +1,17 @@
 #if 1 // OTA.h Starts Here..........
 #include "ArduinoJson.h"
 #include <WiFiMulti.h>
-
-
-// #ifndef ESP32FOTA_EDITED_H
-//     #define ESP32FOTA_EDITED_H
-//     #include "esp32fota_Edited.h"
-// #endif
-
 #include <WiFiClientSecure.h>
 
 
+/************************Trigger Pin or Point************************************/
+#define SW3_PIN                   (34)
+#define FOTA_TRIGGER_DETECTED     (digitalRead(SW3_PIN))
+#define FOTA_TRIGGER_CLEARED      (!digitalRead(SW3_PIN))
+/*********************************************************************************/
+
 #define             VERSION_NO                          3
+
 
 
 
@@ -27,6 +27,8 @@
 // #define JSON_ADDRESS  "/nairkrishna18/PLENT_MASTER/main/CG_PLENT_MASTER_FW_DETAILS.json" // Original Address....
 // #define JSON_ADDRESS  "/nairkrishna18/ESP32_FOTA_T1/blob/master/FotaFolder/CG_PLENT_MASTER_FW_DETAILS.json"
 #define JSON_ADDRESS  "/nairkrishna18/ESP32_FOTA_T1/master/FotaFolder/ESP32_FOTA_FW_DETAILS.json" // removed blob
+
+
 
 void TaskOTAcode( void * parameter );
 void FnOtaStates(void);
@@ -377,3 +379,6 @@ extern UpdateClass Update;
 
 #endif
 #endif // Update_Edited.h Ends here................
+
+void init_Fota(uint8_t Status);
+void func_FotaTrigger(uint8_t Status);

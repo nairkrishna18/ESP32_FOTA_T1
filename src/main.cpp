@@ -1,24 +1,29 @@
 #include <Arduino.h>
-#include "OTA.h"
 
-#define SW3_PIN                   (34)
-#define FOTA_TRIGGER_DETECTED     (digitalRead(SW3_PIN))
-#define FOTA_TRIGGER_CLEARED      (!digitalRead(SW3_PIN))
+#ifndef _OTA_H_
+  #define _OTA_H_
+  #include "OTA.h"
+#endif
 
-TaskHandle_t TaskOTA;
+
 
 void setup()
 {
-  pinMode(SW3_PIN , INPUT_PULLUP); 
-  delay(100); 
   Serial.begin(115200);
+   
   Serial.println("\n|----------------System-Initializing----------------|");
   Serial.println("Serial Port Configured @115200");
   Serial.printf("VERSION_NO = %d\n",VERSION_NO);
-  delay(100); 
-  xTaskCreatePinnedToCore(TaskOTAcode,"TaskOTA",10000,NULL,1,&TaskOTA,1); 
-  vTaskSuspend(TaskOTA);
+  pinMode(SW3_PIN , INPUT_PULLUP); 
+  delay(100);  
+
+#if 1
+init_Fota(1);
+#endif
+
+  
   Serial.print("\nInitializing.");
+  
   for(int i1=0; i1<25; i1++)
   {
     Serial.print(".");
@@ -39,8 +44,10 @@ void loop()
       vTaskDelay(pdMS_TO_TICKS(2000));
       if(FOTA_TRIGGER_DETECTED)
       {
-        Serial.println("|----------------vTaskResume(TaskOTA)----------------|");
-        vTaskResume(TaskOTA);
+        #if 1
+        func_FotaTrigger(1);        
+        #endif
+
       }
     }
     // vTaskDelay(pdMS_TO_TICKS(1000));
