@@ -1,3 +1,5 @@
+
+#if 1
 /*
    esp32 firmware OTA
    Date: December 2018
@@ -93,5 +95,7 @@ private:
   String _bin;
   int _port;
 };
+
+#endif
 
 #endif
