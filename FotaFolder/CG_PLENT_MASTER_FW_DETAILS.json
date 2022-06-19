@@ -8,5 +8,5 @@
     "version": 5.0,
     "host": "raw.githubusercontent.com",
     "port": 80,
-    "bin": "/nairkrishna18/PLENT_MASTER/main/CG_PLENT_MASTER.bin"
+    "bin": "/nairkrishna18/ESP32_FOTA_T1/master/FotaFolder/CG_PLENT_MASTER.bin"
 }
